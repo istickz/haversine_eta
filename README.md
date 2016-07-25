@@ -3,13 +3,15 @@
 Запуск сервера API
 
 ```bash
+$> cd eta_proxy
 $> ruby eta_proxy.rb -v -s -e development -p 3000
 ```
 
 Запуск микросервиса
 
 ```bash
-$> ruby eta_microservice.rb
+$> cd eta_microservice
+$> foreman start
 ```
 
 Тест
