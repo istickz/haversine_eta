@@ -4,7 +4,7 @@
 
 ```bash
 $> cd eta_proxy
-$> ruby eta_proxy.rb -v -s -e development -p 3000
+$> foreman start
 ```
 
 Запуск микросервиса
