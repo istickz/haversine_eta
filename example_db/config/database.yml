@@ -1,0 +1,5 @@
+development:
+  adapter: postgis
+  postgis_extension: true
+  encoding: unicode
+  database: app_development
