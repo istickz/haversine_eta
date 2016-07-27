@@ -1,4 +1,5 @@
 # Haversine ETA
+[![Code Climate](https://codeclimate.com/github/istickz/haversine_eta/badges/gpa.svg)](https://codeclimate.com/github/istickz/haversine_eta)
 
 Используемые технологии: Ruby, Goliath, Grape, RabbitMQ.
 Для реализации микросервисов выбран Rodent.
