@@ -10,8 +10,7 @@ class EtaService
 
   def as_json
     #NOTICE Caching in this place is bad way, but this works perfect
-    garner.options(expires_in: EXPIRES_TIME) do
-      puts "I am Cached NOW #{@lat} #{@long}"
+    garner.options(expires_in: EXPIRES_TIME).key({ lat: lat, long: long }) do
       {eta: calc}
     end
   end
