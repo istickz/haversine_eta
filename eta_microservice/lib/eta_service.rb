@@ -1,16 +1,17 @@
 class EtaService
   include Garner::Cache::Context
-  EXPIRES_TIME = 1.minute
-  attr_accessor :lat, :long
+  attr_accessor :lon, :lat
+
+  EXPIRES_TIME = 1.minute.freeze
 
   def initialize(options)
+    @lon = options['lon']
     @lat = options['lat']
-    @long = options['long']
   end
 
   def as_json
     #NOTICE Caching in this place is bad way, but this works perfect
-    garner.options(expires_in: EXPIRES_TIME).key({ lat: lat, long: long }) do
+    garner.options(expires_in: EXPIRES_TIME).key({lon: lon, lat: lat}) do
       {eta: calc}
     end
   end
@@ -18,11 +19,13 @@ class EtaService
   private
 
     def calc
-      closest_cars = Car.closest(lat, long).limit(3)
+      closest_cars = Car.available.closest(lon, lat).limit(3)
       distances = []
       if closest_cars.any?
         closest_cars.each do |car|
-          distances << Car.distance([car.lonlat.x, car.lonlat.y], [lat, long])
+          distance = Distance.new
+          distance.calc([car.lonlat.x, car.lonlat.y], [lon, lat])
+          distances << distance.value
         end
       end
       eta(distances)

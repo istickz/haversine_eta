@@ -23,7 +23,7 @@ $> foreman start
 
 Тест
 ```bash
-$> curl -X POST localhost:3000/v1/eta/calc -d "lat=54.733856" -d "long=55.958814"
+$> curl -X POST localhost:3000/v1/eta/calc -d "lat=55.986889" -d "long=54.717261"
 
 ```
 

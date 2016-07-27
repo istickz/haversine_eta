@@ -5,14 +5,14 @@ class Api < Grape::API
 
   resource :eta do
     params do
+      requires :lon, type: Float
       requires :lat, type: Float
-      requires :long, type: Float
     end
 
     #NOTICE Caching in this place is not possible
     post '/calc' do
       header 'Rodent-Proxy', 'eta.calc'
-      {lat: params[:lat], long: params[:long]}
+      {lon: params[:lon], lat: params[:lat]}
     end
   end
 end
