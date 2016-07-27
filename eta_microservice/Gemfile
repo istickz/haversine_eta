@@ -1,8 +1,12 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 gem 'rodent'
+gem 'garner'
 gem 'pg'
 gem 'activerecord'
 gem 'activerecord-postgis-adapter'
+
+# Tests
 gem 'rspec'
 gem 'database_cleaner'
+

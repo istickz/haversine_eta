@@ -1,4 +1,6 @@
 class EtaService
+  include Garner::Cache::Context
+  EXPIRES_TIME = 1.minute
   attr_accessor :lat, :long
 
   def initialize(options)
@@ -7,7 +9,11 @@ class EtaService
   end
 
   def as_json
-    {eta: calc}
+    #NOTICE Caching in this place is bad way, but this works perfect
+    garner.options(expires_in: EXPIRES_TIME) do
+      puts "I am Cached NOW #{@lat} #{@long}"
+      {eta: calc}
+    end
   end
 
   private

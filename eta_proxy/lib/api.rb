@@ -9,7 +9,7 @@ class Api < Grape::API
       requires :long, type: Float
     end
 
-    #TODO Add cache for eta/calc
+    #NOTICE Caching in this place is not possible
     post '/calc' do
       header 'Rodent-Proxy', 'eta.calc'
       {lat: params[:lat], long: params[:long]}
