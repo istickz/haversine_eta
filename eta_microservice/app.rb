@@ -1,7 +1,4 @@
-require 'rodent'
-require_relative 'store'
-require_relative 'eta_service'
-require_relative 'api_listener'
+require_relative 'config/boot'
 
 class EtaServer < Rodent::Server
   configure do
