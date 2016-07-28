@@ -32,6 +32,8 @@ class EtaService
     end
 
     def eta(distances)
-      distances.map{|d| d*1.5}.reduce(:+).to_f / distances.size
+      if distances.size > 0
+        distances.map{|d| d*1.5}.reduce(:+).to_f / distances.size
+      end
     end
 end
