@@ -8,23 +8,30 @@
 Для работы с геоданными использован PostGIS.
 Кеш реализован с помощью Garner.
 
-Запуск сервера API
+### Запуск сервера API
 
 ```bash
 $> cd eta_proxy
 $> foreman start
 ```
 
-Запуск микросервиса
+### Запуск микросервиса
 
 ```bash
 $> cd eta_microservice
 $> foreman start
 ```
 
-Тест
+### Тест
 ```bash
-$> curl -X POST localhost:3000/v1/eta/calc -d "lat=55.986889" -d "long=54.717261"
+$> curl -X POST localhost:3000/v1/eta/calc -d "lat=55.986889" -d "lon=54.717261"
+
 
 ```
-
+### Производительность
+```
+dev
+Requests/sec:     32.51
+prod
+Requests/sec:     54.95
+```
